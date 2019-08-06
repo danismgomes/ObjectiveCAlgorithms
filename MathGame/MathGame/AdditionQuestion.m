@@ -1,8 +1,8 @@
 //
 //  AdditionQuestion.m
-//  Lab3
+//  MathGame
 //
-//  Created by Danielle Gomes on 2019-08-05.
+//  Created by Danielle Gomes on 2019-08-06.
 //  Copyright © 2019 Danielle Gomes. All rights reserved.
 //
 
@@ -17,12 +17,12 @@
         _number2 = arc4random_uniform(91) + 10;
         _answer = _number1 + _number2;
         _question = [NSString stringWithFormat:@"%ld + %ld ?", self.number1, self.number2];
-//        _input = getUserInput(_question);
-//        self.output = [self isAnswer:_input];
-//       // _startTime = [NSDate date];
+        //        _input = getUserInput(_question);
+        //        self.output = [self isAnswer:_input];
+        //       // _startTime = [NSDate date];
     }
     
-//    NSLog(@"%@", _question);
+    //    NSLog(@"%@", _question);
     
     return self;
 }
@@ -45,7 +45,7 @@
 
 - (BOOL) isAnswer: (NSString*) userAnswer
 {
-
+    
     if (self.answer == [AdditionQuestion transformStringIntoInteger:userAnswer]) {
         NSLog(@"Right!");
         return YES;
@@ -56,7 +56,7 @@
 }
 
 //- (NSInteger)answer {
-//    
+//
 //    _endTime = [NSDate date];
 //    return _answer;
 //}

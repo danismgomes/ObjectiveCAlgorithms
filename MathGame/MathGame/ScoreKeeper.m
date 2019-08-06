@@ -1,8 +1,8 @@
 //
 //  ScoreKeeper.m
-//  Lab3
+//  MathGame
 //
-//  Created by Danielle Gomes on 2019-08-05.
+//  Created by Danielle Gomes on 2019-08-06.
 //  Copyright © 2019 Danielle Gomes. All rights reserved.
 //
 

@@ -1,8 +1,8 @@
 //
 //  Questions.h
-//  Lab3
+//  MathGame
 //
-//  Created by Danielle Gomes on 2019-07-31.
+//  Created by Danielle Gomes on 2019-08-06.
 //  Copyright © 2019 Danielle Gomes. All rights reserved.
 //
 
@@ -15,3 +15,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
