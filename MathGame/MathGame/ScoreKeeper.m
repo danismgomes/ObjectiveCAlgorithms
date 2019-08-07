@@ -15,6 +15,8 @@
     if ((self = [super init])) {
         _rightCount = 0;
         _wrongCount = 0;
+        _totalTime = 0.0;
+        _lastTime = 0.0;
     }
     
     return self;
@@ -27,6 +29,11 @@
 
 - (void) printScore {
     NSLog(@"score: %ld right, %ld wrong ---- %ld%%", _rightCount, _wrongCount, [self rightPecentage]);
+}
+
+- (void) printAverageTime {
+    NSLog(@"total time: %.0fs, avage time: %.0fs", _lastTime, _totalTime/(_rightCount+_wrongCount));
+    [self setTotalTime:_totalTime + _lastTime];
 }
 
 @end

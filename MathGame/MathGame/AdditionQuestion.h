@@ -15,13 +15,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSInteger number1;
 @property (nonatomic) NSInteger number2;
 @property (nonatomic) NSInteger answer;
-//@property (nonatomic) NSString *input;
 @property (nonatomic) NSString *question;
-//@property (nonatomic) NSString *output;
-//@property (nonatomic) NSDate *startTime;
-//@property (nonatomic) NSDate *endTime;
+@property (nonatomic) NSString *userInput;
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSDate *endTime;
+
 - (instancetype)init;
-- (NSString*) isAnswer: (NSString*) userAnswer;
+- (BOOL) isAnswer;
+- (NSTimeInterval) answerTime;
 
 @end
 

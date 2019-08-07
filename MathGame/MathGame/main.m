@@ -14,23 +14,22 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
-        NSString *userInput;
         ScoreKeeper *scorekeeper = [[ScoreKeeper alloc] init];
         
         while (YES) {
             AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
-            userInput = [getUserInput([q1 question]) uppercaseString];
-            if ([userInput isEqualToString:@"QUIT"]) {
+            if ([[[q1 userInput] uppercaseString] isEqualToString:@"QUIT"]) {
                 break;
             } else {
-                //NSLog(@"%@",[q1 isAnswer:userInput]);
-                if ([q1 isAnswer:userInput]) {
+                if ([q1 isAnswer]) {
                     [scorekeeper setRightCount:[scorekeeper rightCount]+1];
                 } else {
                     [scorekeeper setWrongCount:[scorekeeper wrongCount]+1];
                 }
                 
                 [scorekeeper printScore];
+                [scorekeeper setLastTime:[q1 answerTime]];
+                [scorekeeper printAverageTime];
             }
         }
         

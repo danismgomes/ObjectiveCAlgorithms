@@ -7,6 +7,7 @@
 //
 
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 @implementation AdditionQuestion
 
@@ -17,12 +18,9 @@
         _number2 = arc4random_uniform(91) + 10;
         _answer = _number1 + _number2;
         _question = [NSString stringWithFormat:@"%ld + %ld ?", self.number1, self.number2];
-        //        _input = getUserInput(_question);
-        //        self.output = [self isAnswer:_input];
-        //       // _startTime = [NSDate date];
+        _startTime = [NSDate date];
+        _userInput = getUserInput(_question);
     }
-    
-    //    NSLog(@"%@", _question);
     
     return self;
 }
@@ -43,10 +41,9 @@
     return ld;
 }
 
-- (BOOL) isAnswer: (NSString*) userAnswer
+- (BOOL) isAnswer
 {
-    
-    if (self.answer == [AdditionQuestion transformStringIntoInteger:userAnswer]) {
+    if (_answer == [AdditionQuestion transformStringIntoInteger:_userInput]) {
         NSLog(@"Right!");
         return YES;
     } else {
@@ -55,9 +52,15 @@
     }
 }
 
-//- (NSInteger)answer {
-//
-//    _endTime = [NSDate date];
-//    return _answer;
-//}
+// overriding getter
+- (NSString *) userInput {
+    _endTime = [NSDate date];
+    return _userInput;
+}
+
+- (NSTimeInterval) answerTime
+{
+    return [_endTime timeIntervalSinceDate:_startTime];
+}
+
 @end
