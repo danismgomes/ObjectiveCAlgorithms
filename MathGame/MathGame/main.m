@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionsController.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,18 +17,19 @@ int main(int argc, const char * argv[]) {
         ScoreKeeper *scorekeeper = [[ScoreKeeper alloc] init];
         
         while (YES) {
-            AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
-            if ([[[q1 userInput] uppercaseString] isEqualToString:@"QUIT"]) {
+            QuestionsController *questions = [[QuestionsController alloc]init];
+            Question *question = [questions question];
+            if ([[[question userInput] uppercaseString] isEqualToString:@"QUIT"]) {
                 break;
             } else {
-                if ([q1 isAnswer]) {
+                if ([question isAnswer]) {
                     [scorekeeper setRightCount:[scorekeeper rightCount]+1];
                 } else {
                     [scorekeeper setWrongCount:[scorekeeper wrongCount]+1];
                 }
                 
                 [scorekeeper printScore];
-                [scorekeeper setLastTime:[q1 answerTime]];
+                [scorekeeper setLastTime:[question answerTime]];
                 [scorekeeper printAverageTime];
             }
         }

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AdditionQuestion : NSObject
+@interface Question : NSObject
 
 @property (nonatomic) NSInteger number1;
 @property (nonatomic) NSInteger number2;
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSDate *startTime;
 @property (nonatomic) NSDate *endTime;
 
-- (instancetype)init;
+- (instancetype)initWithController: (NSString *) operationType;
 - (BOOL) isAnswer;
 - (NSTimeInterval) answerTime;
 
